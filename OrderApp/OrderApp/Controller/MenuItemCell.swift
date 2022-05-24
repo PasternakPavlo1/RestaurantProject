@@ -3,6 +3,7 @@ import UIKit
 
 // MARK: - Classes
 class MenuItemCell: UITableViewCell {
+    
     // MARK: - Properties
     var itemName: String? = nil
     {

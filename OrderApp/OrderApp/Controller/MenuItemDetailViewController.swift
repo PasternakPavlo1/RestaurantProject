@@ -1,7 +1,9 @@
 import UIKit
 
+// MARK: - Classes
 @MainActor
 class MenuItemDetailViewController: UIViewController {
+    
     // MARK: - Properties
     let menuItem: MenuItem
     

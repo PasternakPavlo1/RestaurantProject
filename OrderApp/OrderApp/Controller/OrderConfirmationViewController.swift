@@ -1,6 +1,8 @@
 import UIKit
 
+// MARK: - Classes
 class OrderConfirmationViewController: UIViewController {
+    
     // MARK: - Instances
     let minutesToPrepare: Int
     

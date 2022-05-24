@@ -1,7 +1,9 @@
 import UIKit
 
+// MARK: - Classes
 @MainActor
 class CategoryTableViewController: UITableViewController {
+    
     // MARK: - Properties
     let menuController = MenuController()
     var categories = [String]()

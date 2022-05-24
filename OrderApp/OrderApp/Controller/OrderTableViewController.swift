@@ -1,6 +1,8 @@
 import UIKit
 
+// MARK: - Classes
 class OrderTableViewController: UITableViewController {
+    
     // MARK: - Instances
     var minutesToPrepareOrder = 0
     var imageLoadTasks: [IndexPath: Task<Void, Never>] = [:]

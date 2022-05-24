@@ -1,5 +1,6 @@
 import UIKit
 
+// MARK: - Classes
 @MainActor
 class MenuTableViewController: UITableViewController {
     
