@@ -1,12 +1,6 @@
-//
-//  ResponseModels.swift
-//  OrderApp
-//
-//  Created by Павло Пастернак on 12.05.2022.
-//
-
 import Foundation
 
+// MARK: - Structures
 struct OrderResponse: Codable {
     let prepTime: Int
     
