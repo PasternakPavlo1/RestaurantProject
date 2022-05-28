@@ -1,23 +1,28 @@
-//
-//  MenuController.swift
-//  OrderApp
-//
-//  Created by Павло Пастернак on 12.05.2022.
-//
-
 import Foundation
 import UIKit
 
-
+// MARK: - Enumerations
 enum MenuControllerError: Error, LocalizedError {
     case categoriesNotFound
     case menuItemsNotFound
     case orderRequestFailed
+    case imageDataMissing
 }
 
+// MARK: - Classes
 class MenuController {
+    // MARK: - Properties
     let baseURL = URL(string: "http://localhost:8080/")!
+    static let shared = MenuController()
+    static let orderUpdatedNotification = Notification.Name("MenuController.orderUpdated")
     
+    var order = Order() {
+        didSet {
+            NotificationCenter.default.post(name: MenuController.orderUpdatedNotification, object: nil)
+        }
+    }
+    
+    // MARK: - Methods
     func fetchCategories() async throws -> [String] {
         let categoriesURL = baseURL.appendingPathComponent("categories")
         let (data, response) = try await URLSession.shared.data(from: categoriesURL)
@@ -66,5 +71,15 @@ class MenuController {
         return orderResponse.prepTime
     }
     
+    func fetchImage(from url: URL) async throws -> UIImage {
+        let (data, response) = try await URLSession.shared.data(from: url)
+        guard let httpResponse = response as? HTTPURLResponse,
+              httpResponse.statusCode == 200 else {
+                  throw MenuControllerError.imageDataMissing
+              }
+        guard let image = UIImage(data: data) else {
+            throw MenuControllerError.imageDataMissing
+        }
+        return image
+    }
 }
-

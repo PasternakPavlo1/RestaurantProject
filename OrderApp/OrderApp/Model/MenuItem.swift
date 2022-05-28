@@ -1,12 +1,6 @@
-//
-//  MenuItem.swift
-//  OrderApp
-//
-//  Created by Павло Пастернак on 12.05.2022.
-//
-
 import Foundation
 
+// MARK: - Structures
 struct MenuItem: Codable {
     var id: Int
     var name: String
@@ -15,6 +9,7 @@ struct MenuItem: Codable {
     var category: String
     var imageURL: URL
     
+    // MARK: - Enumeration
     enum CodingKeys: String, CodingKey {
         case id
         case name
@@ -24,10 +19,3 @@ struct MenuItem: Codable {
         case imageURL = "image_url"
     }
 }
-
-struct MenuResponse: Codable {
-    let items: [MenuItem]
-}
-
-
-

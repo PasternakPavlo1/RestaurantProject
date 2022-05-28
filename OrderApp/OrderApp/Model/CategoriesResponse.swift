@@ -1,13 +1,6 @@
-//
-//  CategoriesResponse.swift
-//  OrderApp
-//
-//  Created by Павло Пастернак on 12.05.2022.
-//
-
 import Foundation
 
+// MARK: - Structures
 struct CategoriesResponse: Codable {
     let categories: [String]
 }
-
